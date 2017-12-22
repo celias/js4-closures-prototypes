@@ -15,11 +15,13 @@ function outer() {
   another variable called 'inner'. */
   
   // Code Here
+  var inner = outer();
+  
   
   //Once you do that, invoke inner.
   
   //Code Here
-  
+  inner;
   
   
   
@@ -51,6 +53,14 @@ function outer() {
   */
   
     //Code Here
+  var callJake = callFriend("Jake");
+  // dial('435-555-9248');
+  
+  
+
+
+ 
+
   
   
   
@@ -67,15 +77,20 @@ function outer() {
   /****** INSTRUCTIONS PROBLEM 3 ******/
   /* Write a function called makeCounter that makes the following code work
   properly. */
-  
+  function makeCounter(){
+   let count = 0;
+    return function(){
+      return ++count;
+    }
+  }
   //Code Here
   
   //Uncomment this once you make your function
-  //   var count = makeCounter();
-  //   count(); // 1
-  //   count(); // 2
-  //   count(); // 3
-  //   count(); // 4
+    var count = makeCounter();
+    count(); // 1
+    count(); // 2
+    count(); // 3
+    count(); // 4
   
   
   
@@ -100,22 +115,37 @@ function outer() {
   http://stackoverflow.com/questions/17776940/javascript-module-pattern-with-example?answertab=votes#tab-top
   */
   
+  // function counterFactory(value) {
+  //   // var counter = value;
+  //   return {
+  //     inc:function(){
+  //       return value += 1;
+  //     },
+  //     dec:function(){
+  //       return value -= 1;
+  //     }
+  //   }
+    
+  // }
   function counterFactory(value) {
-  
-    // Code here.
-  
-  
     return {
+      inc: function () {
+        return value += 1;
+      },
 
+      dec: function () {
+        return value -= 1;
+      }
     }
   }
-  
-  
+
+    // Code here.
   counter = counterFactory(10);
-  // counter.inc() // 11
-  // counter.inc() // 12
-  // counter.inc() // 13
-  // counter.dec() // 12
+  // console.log('counter', counter)
+  counter.inc() // 11
+  counter.inc() // 12
+  counter.inc() // 13
+  counter.dec() // 12
   
   
   
@@ -138,16 +168,15 @@ function outer() {
   at the end of the sentence.)  */
   
   function motivation(firstname, lastname) {
-  
     var welcomeText = 'You\'re doing awesome, keep it up ';
   
-    // code message function here.
-  
-  
-    //Uncommment this to return the value of your message function
-    //return message;
-  
+    function message() {
+      return `${welcomeText}${firstname} ${lastname}.`;
   }
+  
+  //Uncommment this to return the value of your message function
+    return message;
+}
   
   var greeting = motivation('Billy', 'Bob'); // 'You're doing awesome keep it up Billy Bob.
   
