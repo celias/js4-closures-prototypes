@@ -50,9 +50,15 @@ var bob = new Employee(name, email, hireDate);
 
 // Code here
 function Car (make, model, year) {
- 
+  this.moveCar = function(){
+   return this.move+=10;
+  }
+  this.make = make;
+  this.model = model;
+  this.year = year;
+  this.move = 0; //miles
+  
 }
-
 
 
 
