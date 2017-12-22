@@ -233,11 +233,19 @@ function outer() {
   /* Here we have a function named secretNumber that has a secret number. Inside
   the return object, create two methods called addToSecret and takeAwayFromSecret. addToSecret should have a parameter that is added to the secret number returning the updated secret number. takeAwayFromSecret should have a parameter that takes away from the secret number returning the updated secret number. */
 
-  function secretNumber() {
+  function secretNumber(num) {
     var secret = 143;
 
     return {
-      // Code here
+      addToSecret: function(num) {
+        secret += num;
+        return secret;
+      },
+      takeAwayFromSecret: function(num) {
+        secret -= num;
+        return secret;
+      }
+        
     }
   }
   
