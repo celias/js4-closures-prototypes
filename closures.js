@@ -272,11 +272,13 @@ function outer() {
    */
   
   function timeOutCounter() {
+    
     for (var i = 0; i <= 5; i++) {
-      setTimeout(function() {
-          console.log(i)
-      }, i * 1000)
+      setTimeout(function(i) { return function() { console.log(i) }; }(i), 1000 * i);
+          
     }
   }
-  timeOutCounter();
-  
+
+
+
+ 
